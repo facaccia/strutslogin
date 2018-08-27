@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="strutslogin">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="freemarker-2.3.22.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/freemarker-2.3.22/freemarker-2.3.22">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="strutslogin"/>
+        <property name="java-output-path" value="/strutslogin/build/classes"/>
+    </wb-module>
+</project-modules>

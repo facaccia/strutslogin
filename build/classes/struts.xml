@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   
+    <package name="com" extends="struts-default">
+             
+        
+        <action name="login" class="com.candidjava.controller.LoginController"> 
+	        <interceptor-ref name="completeStack"/>
+    		<interceptor-ref name="execAndWait">
+		        <param name="delay">1000</param>
+		        <param name="delaySleepInterval">500</param>
+		    </interceptor-ref>
+		    
+		    <result name="wait">/wait.jsp</result>
+        	<result name="success">/success.jsp</result>
+            <result name="error">/index.jsp</result>      
+        </action>
+        <action name="modifica" class="com.candidjava.controller.ModificaController">       
+        	<result name="success">/success.jsp</result>
+            <result name="error">/index.jsp</result>      
+        </action>
+         <action name="modificaPassword" class="com.candidjava.controller.ModificaController" method="modificaPassword">       
+        	<result name="success">/privacy.jsp</result>
+            <result name="error">/index.jsp</result>      
+        </action>
+         <action name="registrazione" class="com.candidjava.controller.RegistrazioneController">       
+        	<result name="success">/index.jsp</result>
+            <result name="error">/registrazione.jsp</result>      
+        </action>
+        <action name="logout" class="com.candidjava.controller.LogoutController">       
+        	<result name="success">/index.jsp</result>
+            <result name="error">/index.jsp</result>      
+        </action>
+         <action name="creaCommessa" class="com.candidjava.controller.CommessaController">       
+        	<result name="success">/success.jsp</result>
+            <result name="error">/success.jsp</result>      
+        </action>
+         <action name="controllo" class="com.candidjava.controller.ControlloController">  
+         	<result name="success">/success.jsp</result>
+            <result name="error">/success.jsp</result>    
+        </action>
+        
+        
+		
+   <action name="download" class="com.candidjava.controller.DownloadController">
+	<result name="success" type="stream">
+	  <param name="contentType">application/msword</param>
+	  <param name="inputName">fileInputStream</param>
+	  <param name="contentDisposition">attachment;filename="fileABC.txt"</param>
+	  <param name="bufferSize">1024</param>
+	</result>
+   </action>
+   <action name="downloadWord" class="com.candidjava.controller.DownloadController" method="executeWord">
+	<result name="success" type="stream">
+	  <param name="contentType">application/msword</param>
+	  <param name="inputName">fileInputStream</param>
+	  <param name="contentDisposition">attachment;filename="fileABC.doc"</param>
+	  <param name="bufferSize">1024</param>
+	</result>
+   </action>
+   <action name="downloadImage" class="com.candidjava.controller.DownloadController" method="executeImage">
+	<result name="success" type="stream">
+	  <param name="contentType">image/ief</param>
+	  <param name="inputName">fileInputStream</param>
+	  <param name="contentDisposition">attachment;filename="fileABC.png"</param>
+	  <param name="bufferSize">1024</param>
+	</result>
+   </action>
+
+    </package>
+    
+    
+    <include file="src/bean-definition.xml"></include>
+    	
+			
+</struts>
